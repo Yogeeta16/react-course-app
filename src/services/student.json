@@ -1,0 +1,33 @@
+{
+    "students": [
+      {
+        "id": 101,
+        "name": "Alice Johnson",
+        "email": "a",
+        "phone": "555-1234",
+        "password": "p"
+      },
+      {
+        "id": 102,
+        "name": "Bob Smith",
+        "email": "bob@example.com",
+        "phone": "555-5678",
+        "password": "securepass"
+      },
+      {
+        "id": 103,
+        "name": "Charlie Brown",
+        "email": "charlie@example.com",
+        "phone": "555-9876",
+        "password": "pass123"
+      },
+      {
+        "id": 104,
+        "name": "Diana Williams",
+        "email": "diana@example.com",
+        "phone": "555-4321",
+        "password": "p@ssw0rd"
+      }
+    ]
+  }
+  

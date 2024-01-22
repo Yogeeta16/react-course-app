@@ -6,15 +6,8 @@ react-couse-App
     |   |-- CourseListing.js
     |   |-- CourseDetails.js
     |   |-- StudentDashboard.js
+    |   |-- LoginSignup.js
     |   |-- ...
-    |-- redux
-    |   |-- actions
-    |   |   |-- courseActions.js
-    |   |   |-- studentActions.js
-    |   |-- reducers
-    |   |   |-- courseReducer.js
-    |   |   |-- studentReducer.js
-    |   |-- store.js
     |-- services
     |   |-- api.js
     |   |-- data.json
@@ -27,6 +20,8 @@ react-couse-App
 cd react-course-app
 npm start
 
+cd react-course-app 
+npx json-server --watch src/services/student.json --port 3031
    
 cd react-course-app 
 npx json-server --watch src/services/data.json --port 3030

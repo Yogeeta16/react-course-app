@@ -22,9 +22,7 @@ const CourseDetails = ({ courses }) => {
     syllabus,
   } = course;
 
-  // Initialize state unconditionally
   const [isSyllabusExpanded, setSyllabusExpanded] = useState(false);
-
   const toggleSyllabus = () => {
     setSyllabusExpanded(!isSyllabusExpanded);
   };
@@ -39,9 +37,7 @@ const CourseDetails = ({ courses }) => {
       <p>Duration: {duration}</p>
       <p>Schedule: {schedule}</p>
       <p>Location: {location}</p>
-      <p>Pre-requisites: {prerequisites.join(", ")}</p>
-
-      {/* Expandable Syllabus */}
+   
       <div>
         <button
           onClick={toggleSyllabus}
@@ -50,9 +46,7 @@ const CourseDetails = ({ courses }) => {
         >
           Syllabus {isSyllabusExpanded ? "(Collapse)" : "(Expand)"}
         </button>
-        {/* <h4 onClick={toggleSyllabus} style={{ cursor: "pointer" }}>
-          Syllabus {isSyllabusExpanded ? "(Collapse)" : "(Expand)"}
-        </h4> */}
+      
         {isSyllabusExpanded && (
           <ul>
             {syllabus.map((item) => (
