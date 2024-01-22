@@ -1,0 +1,34 @@
+react-couse-App
+    node_modules
+    public
+    src
+    |-- components
+    |   |-- CourseListing.js
+    |   |-- CourseDetails.js
+    |   |-- StudentDashboard.js
+    |   |-- ...
+    |-- redux
+    |   |-- actions
+    |   |   |-- courseActions.js
+    |   |   |-- studentActions.js
+    |   |-- reducers
+    |   |   |-- courseReducer.js
+    |   |   |-- studentReducer.js
+    |   |-- store.js
+    |-- services
+    |   |-- api.js
+    |   |-- data.json
+    |-- App.js
+    |-- index.js
+    |-- ...
+    package-lock.json
+    package.json
+
+cd react-course-app
+npm start
+
+   
+cd react-course-app 
+npx json-server --watch src/services/data.json --port 3030
+
+http://localhost:3000/courses
