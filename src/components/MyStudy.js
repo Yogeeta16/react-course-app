@@ -1,36 +1,34 @@
-import React, { useState } from 'react';
+import React from "react";
+import { connect } from "react-redux";
+import { completeCourse } from "../redux/actions/actions";
+import { Link } from "react-router-dom";
+import "../styles/Common.css"; 
 
-const MyStudy = ({ user, courses }) => {
-  const [completedCourses, setCompletedCourses] = useState([]);
-
-  const handleCompleteCourse = (courseId) => {
-    if (!completedCourses.includes(courseId)) {
-      setCompletedCourses([...completedCourses, courseId]);
-    }
-  };
-
-  // Function to check if a course is completed
-  const isCourseCompleted = (courseId) => {
-    return completedCourses.includes(courseId);
-  };
+const MyStudy = ({ user, courses, completeCourse, completedCourses }) => {
+  if (!user || !user.name) {
+    return <p>No user data available.</p>;
+  }
 
   return (
-    <div>
-      <h2>My Study</h2>
-      <p>Welcome, {user.name}!</p>
+    <div className="my-study-container">
+      <h2 className="my-study-heading">My Study</h2>
+      <p className="welcome-message">Welcome, {user.name}!</p>
       {courses.length === 0 ? (
         <p>No enrolled courses.</p>
       ) : (
-        <ul>
+        <ul className="card-container">
           {courses.map((course) => (
-            <li key={course.id}>
-              <p>{course.name}</p>
-              <p>Instructor: {course.instructor}</p>
-              {/* Conditional rendering based on completion status */}
-              {isCourseCompleted(course.id) ? (
-                <p style={{ color: 'green' }}>Completed</p>
+            <li className="course-card" key={course.id}>
+              <p className="course-name">{course.name}</p>
+              <p className="instructor">Instructor: {course.instructor}</p>
+              <Link className="view-details-link" to={`/courses/${course.id}`}>
+                View Details
+              </Link>
+              <p></p>
+              {completedCourses.includes(course.id) ? (
+                <p style={{ color: "green" }}>Completed</p>
               ) : (
-                <button onClick={() => handleCompleteCourse(course.id)}>
+                <button className="mark-completed-button" onClick={() => completeCourse(course.id)}>
                   Mark as Completed
                 </button>
               )}
@@ -42,4 +40,8 @@ const MyStudy = ({ user, courses }) => {
   );
 };
 
-export default MyStudy;
+const mapStateToProps = (state) => ({
+  completedCourses: state.completedCourses,
+});
+
+export default connect(mapStateToProps, { completeCourse })(MyStudy);

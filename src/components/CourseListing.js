@@ -1,7 +1,7 @@
-// src/components/CourseListing.js
 import React, { useState, useEffect } from "react";
 import { fetchData } from "../services/api";
 import { Link } from "react-router-dom";
+import "../styles/Common.css"; // Import common CSS file
 
 const CourseListing = () => {
   const [courses, setCourses] = useState([]);
@@ -27,23 +27,27 @@ const CourseListing = () => {
     : [];
 
   return (
-    <div>
-      <h2>Course Listing</h2>
+    <div className="course-listing-container">
+      <h2 className="heading">Course Listing</h2>
       <input
+        className="search-input"
         type="text"
         placeholder="Search by course name or instructor"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <ul>
+
+      <div className="card-container">
         {filteredCourses.map((course) => (
-          <li key={course.id}>
-            <p>{course.name}</p>
-            <p>Instructor: {course.instructor}</p>
-            <Link to={`/courses/${course.id}`}>View Details</Link>
-          </li>
+          <div className="course-card" key={course.id}>
+            <p className="course-name">{course.name}</p>
+            <p className="instructor">Instructor: {course.instructor}</p>
+            <Link className="view-details-link" to={`/courses/${course.id}`}>
+              View Details
+            </Link>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

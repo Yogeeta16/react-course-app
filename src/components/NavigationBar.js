@@ -15,7 +15,7 @@ const NavigationBar = ({ loggedInUser, onLogout }) => {
     <nav>
       <ul>
         <li>
-          <Link to="/home">Home</Link>
+          <Link to="/dashboard">Home</Link>
         </li>
         <li>
           <Link to="/courses">Course List</Link>

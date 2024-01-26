@@ -1,0 +1,76 @@
+/* CourseDetails.css */
+/* Container styles */
+.course-details-container {
+  max-width: 800px;
+  margin: 10px auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styles */
+.course-details-heading {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+/* Section styles */
+.course-details-section {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.course-details-section span {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Text styles */
+.course-details-section p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Syllabus button styles */
+.syllabus-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.syllabus-button:hover {
+  background-color: #0056b3;
+}
+
+/* Syllabus list styles */
+.syllabus-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+/* Syllabus item styles */
+.syllabus-item {
+  background-color: #f7f7f7;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.syllabus-item p {
+  margin: 0;
+  color: #333;
+}
+.syllabus-item-week {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
