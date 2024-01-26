@@ -1,10 +1,12 @@
-// src/components/CourseDetails.js
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 
 const CourseDetails = ({ courses }) => {
   const { courseId } = useParams();
   const course = courses.find((c) => c.id === courseId);
+
+  // Define state variables unconditionally
+  const [isSyllabusExpanded, setSyllabusExpanded] = useState(false);
 
   if (!course) {
     return <p>Course not found.</p>;
@@ -22,7 +24,6 @@ const CourseDetails = ({ courses }) => {
     syllabus,
   } = course;
 
-  const [isSyllabusExpanded, setSyllabusExpanded] = useState(false);
   const toggleSyllabus = () => {
     setSyllabusExpanded(!isSyllabusExpanded);
   };

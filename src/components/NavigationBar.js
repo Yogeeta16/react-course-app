@@ -6,9 +6,8 @@ const NavigationBar = ({ loggedInUser, onLogout }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-
     onLogout();
-   
+
     navigate("/login");
   };
 

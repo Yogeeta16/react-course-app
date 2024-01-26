@@ -6,8 +6,9 @@ import LoginSignup from "./components/LoginSignup";
 import StudentDashboard from "./components/StudentDashboard";
 import CourseListing from "./components/CourseListing";
 import MyStudy from "./components/MyStudy";
-import { fetchData } from "./services/api"; 
-
+import { fetchData } from "./services/api";
+import CourseDetails from "./components/CourseDetails";
+import "./App.css";
 const App = () => {
   const [loggedInUser, setLoggedInUser] = useState(null);
   const [courses, setCourses] = useState([]);
@@ -21,13 +22,14 @@ const App = () => {
   };
 
   useEffect(() => {
-
     fetchData("http://localhost:3030/posts")
       .then((result) => {
         console.log("Fetched courses:", result);
         setCourses(result);
       })
-      .catch((error) => console.error("Error fetching courses:", error.message));
+      .catch((error) =>
+        console.error("Error fetching courses:", error.message)
+      );
   }, []);
 
   return (
@@ -50,7 +52,10 @@ const App = () => {
           path="/mystudy"
           element={<MyStudy user={loggedInUser} courses={courses} />}
         />
-   
+        <Route
+          path="/courses/:courseId"
+          element={<CourseDetails courses={courses} />}
+        />
       </Routes>
     </Router>
   );

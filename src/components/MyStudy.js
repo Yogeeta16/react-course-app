@@ -1,35 +1,39 @@
-// src/components/MyStudy.js
-import React, { useEffect, useState } from "react";
+import React, { useState } from 'react';
 
 const MyStudy = ({ user, courses }) => {
-  console.log("Received user:", user);
-  console.log("Received courses:", courses);
+  const [completedCourses, setCompletedCourses] = useState([]);
 
-  const [enrolledCourses, setEnrolledCourses] = useState([]);
-
-  useEffect(() => {
-    if (user && courses) {
-
-      const userId = parseInt(user.id, 10);
-
-      const userEnrolledCourses = courses.filter((course) =>
-        course.students.some((student) => student.id === userId)
-      );
-      setEnrolledCourses(userEnrolledCourses);
+  const handleCompleteCourse = (courseId) => {
+    if (!completedCourses.includes(courseId)) {
+      setCompletedCourses([...completedCourses, courseId]);
     }
-  }, [user, courses]);
+  };
+
+  // Function to check if a course is completed
+  const isCourseCompleted = (courseId) => {
+    return completedCourses.includes(courseId);
+  };
 
   return (
     <div>
       <h2>My Study</h2>
-      {enrolledCourses.length === 0 ? (
+      <p>Welcome, {user.name}!</p>
+      {courses.length === 0 ? (
         <p>No enrolled courses.</p>
       ) : (
         <ul>
-          {enrolledCourses.map((course) => (
+          {courses.map((course) => (
             <li key={course.id}>
               <p>{course.name}</p>
               <p>Instructor: {course.instructor}</p>
+              {/* Conditional rendering based on completion status */}
+              {isCourseCompleted(course.id) ? (
+                <p style={{ color: 'green' }}>Completed</p>
+              ) : (
+                <button onClick={() => handleCompleteCourse(course.id)}>
+                  Mark as Completed
+                </button>
+              )}
             </li>
           ))}
         </ul>
